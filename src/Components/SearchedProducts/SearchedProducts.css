@@ -1,0 +1,40 @@
+.searchedProducts{
+    position: absolute;
+    width: 90%;
+    left: 0;
+    background: white;
+    z-index: 1000;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    max-height: 300px; 
+    overflow-y: scroll;
+}
+.searchedProduct {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.searchedProduct>div{
+    width: 33%;
+    gap: 20px;
+}
+
+.searchedProduct img{
+    width: 100%;
+    height: 120px;
+}
+.searchedProductDetails{
+    height: 30%;
+    text-align: center;
+}
+
+@media screen and (max-width: 640px) {
+    .searchedProducts{
+        left: 20px;
+        max-height: 400px; 
+    }
+    .searchedProduct {
+        gap: 8px;
+    }
+}

@@ -1,0 +1,27 @@
+.featuredCollection .product-details {
+    padding: 0;
+  }
+
+
+  .featuredCollection .img-container {
+    height: 50%;
+  }
+
+  .featuredCollection img {
+    height: 200px;
+  }
+
+  @media screen and (max-width: 640px) {
+
+    .featuredCollection .product-details {
+        padding: 0 ;
+      }
+    
+      .featuredCollection .img-container {
+        height: 60%;
+      }
+    
+
+
+
+  }

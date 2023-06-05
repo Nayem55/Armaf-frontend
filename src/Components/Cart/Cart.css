@@ -1,0 +1,28 @@
+.cart-icon{
+    position: fixed;
+    z-index: 1000;
+    transition: right 1000ms ease-in-out;
+ 
+ }
+ .cart-scrolled-50{
+    right: -4000px;
+ }
+ .cart-scrolled-80{
+    top: 18px;
+    right: 40px;
+ }
+ 
+ .cart-not-scrolled{
+     top: 53px;
+     right: 40px;
+ }
+ 
+ @media screen and (max-width:688px){
+
+.mobile-cart-position{
+    top: 20px;
+    right: 24px;
+
+}
+
+ } 

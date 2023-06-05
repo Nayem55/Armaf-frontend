@@ -1,0 +1,8 @@
+.details-img{
+    transition: all ease-in-out 1200ms;
+    margin-right: 20px;
+}
+.details-img:hover{
+    /* transform: rotateY(180deg); */
+    transform: scale(1.2);
+}
