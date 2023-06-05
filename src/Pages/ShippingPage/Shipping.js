@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { ThemeContext } from "../../Contexts/ThemeContext";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Shipping = () => {
   const [user] = useAuthState(auth);
@@ -32,7 +32,7 @@ const Shipping = () => {
 
 
 
-  let shippingCart;
+  let shippingCart = [];
   if (freeProducts?.length > 0) {
     shippingCart = [...cart, ...freeProducts];
   } else {
@@ -49,7 +49,7 @@ const Shipping = () => {
       shippingProductPrice + product.price * product.quantity;
   });
 
-  const handleShipping = (e) => {
+  const handleShipping =async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const firstName = e.target.firstName.value;
@@ -101,7 +101,7 @@ const Shipping = () => {
       ],
     };  
 
-    fetch("http://localhost:5000/postOrder", {
+    await fetch("http://localhost:5000/postOrder", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -119,7 +119,7 @@ const Shipping = () => {
     localStorage.removeItem("freeProducts");
     e.target.reset();
     toast.success("ORDER CONFIRMED");
-    navigate("shipping/confirmOrder");
+    navigate("/shipping/confirmOrder");
 
   };
   return (
@@ -259,11 +259,17 @@ const Shipping = () => {
             required
             placeholder="Phone number"
           />
-          <input
+          {
+            shippingCart.length>0? <input
             type="submit"
             className="btn mb-8 btn-secondary border-none text-white hover:bg-accent"
             value="Check out"
-          />
+          />:
+          <Link to="/"  className="btn mb-8 btn-secondary border-none text-white hover:bg-accent">
+            Empty cart (Go to shopping)
+          </Link>
+          }
+        
         </form>
 
         <div className="w-[100%] lg:w-[50%] mb-10 p-4 shipping-cart-products bg-secondary bg-opacity-5">

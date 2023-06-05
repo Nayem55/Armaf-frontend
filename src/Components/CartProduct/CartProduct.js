@@ -52,7 +52,7 @@ const CartProduct = ({ product }) => {
           <div className="cart-product-details]">
             <p className="opacity-70">{product?.name}</p>
             <p>{product?.categories[0].name.toUpperCase()}</p>
-            <p className="text-accent font-bold">${product?.price}</p>
+            <p className="text-accent font-bold">{product?.price} TK.</p>
           </div>
         </div>
       </div>

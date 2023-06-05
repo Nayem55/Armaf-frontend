@@ -95,23 +95,15 @@ const CartPage = () => {
         <div className="subtotal flex flex-col items-center w-[100%] sm:w-[30%]">
             <p className="block bg-secondary px-4 py-4 bg-opacity-10 w-full text-center">Subtotal</p>
             <div className="flex items-center gap-4">
-            <p className="text-3xl my-6 text-accent font-bold">$
-              {
-                price
-              }
-            </p>
+            <p className="text-3xl my-6 text-accent font-bold">{price} TK.</p>
             </div>
             <hr className="h-[2px] bg-secondary bg-opacity-20 w-full" />
             <label htmlFor="comments" className="text-left w-full my-3 text-xs"> Additional Comments</label>
             <textarea name="comments" rows='4' cols="20"  className="border border-secondary w-full border-opacity-30" />
             {
-              quantity<2 ? <Link to="/shipping" className="btn bg-secondary w-full mt-[15px] text-white hover:bg-secondary border-none rounded"> Proceed To Checkout </Link> :
-              <button onClick={()=>
-                {
-                  handleModalOpen()
-
-                
-                }} className="btn bg-secondary w-full mt-[15px] text-white hover:bg-secondary border-none rounded">{quantity===2?"Choose One Free Product":"Choose Two Free Products"}</button>
+              quantity < 1 ? <Link to="/" className="btn bg-secondary w-full mt-[15px] text-white hover:bg-secondary border-none rounded"> Empty cart (Go to shopping) </Link>:
+              quantity===1 ? <Link to="/shipping" className="btn bg-secondary w-full mt-[15px] text-white hover:bg-secondary border-none rounded"> Proceed To Checkout </Link> :
+              <button onClick={()=>handleModalOpen()} className="btn bg-secondary w-full mt-[15px] text-white hover:bg-secondary border-none rounded">{quantity===2?"Choose One Free Product":"Choose Two Free Products"}</button>
             }
             
         </div> 
